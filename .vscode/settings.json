@@ -1,0 +1,74 @@
+{
+    "latex-workshop.latex.tools": [
+        {
+            "name": "pdflatex",
+            "command": "pdflatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "%DOC%"
+            ]
+        },
+        {
+            "name": "xelatex",
+            "command": "xelatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "%DOC%"
+            ]
+        },
+        {
+            "name": "latexmk",
+            "command": "latexmk",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-pdf",
+                "-outdir=%OUTDIR%",
+                "%DOC%"
+            ]
+        },
+        {
+            "name": "bibtex",
+            "command": "bibtex",
+            "args": [
+                "%DOCFILE%"
+            ]
+        },
+        {
+            "name": "biber",
+            "command": "biber",
+            "args": [
+                "%DOCFILE%"
+            ]
+        }
+    ],
+
+
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "pdflatex -> bibtex -> pdflatex*2",
+            "tools": [
+                "pdflatex",
+                "bibtex",
+                "pdflatex",
+                "pdflatex"
+            ]
+        }
+    ],
+
+// Fix citation warnings in editor when using biber (wavy lines).
+"latex-workshop.intellisense.citation.backend": "biblatex",
+// Set bibliography indentation to four spaces (default: two).
+"latex-workshop.bibtex-format.tab": "4 spaces",
+// Avoid building PDF every time a file is modified or saved.
+"latex-workshop.latex.autoBuild.run": "onSave",
+// Sync PDF with cursor position after compiling.
+"latex-workshop.synctex.afterBuild.enabled": true,
+// Automatically choose last used recipe on next build.
+"latex-workshop.latex.recipe.default": "pdflatex -> bibtex -> pdflatex*2",
+}
