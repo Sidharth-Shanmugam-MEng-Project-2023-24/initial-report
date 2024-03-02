@@ -83,19 +83,24 @@ Gas bubbles emerging from seafloor seepages rise at high speeds and may change i
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.65\textwidth]{assets/zelenkaGasBubbleShape2014-movement_tracking.png}
-    \caption{Illustration of the movement of bubbles in between two frames at 100 fps. The combination shows frames 1 and 2 with the bubble detection in frame 2 in red and matching bubbles connected in green \cite{zelenkaGasBubbleShape2014}.}
-    \label{fig:zelenka_tracking}
+    \begin{subfigure}{.45\textwidth}
+        \centering
+        \includegraphics[width=1\linewidth]{assets/zelenkaGasBubbleShape2014-movement_tracking.png}
+        \caption{}
+        \label{subfig:zelenka_tracking}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{.53\textwidth}
+        \centering
+        \includegraphics[width=1\linewidth]{assets/zelenkaGasBubbleShape2014-bubble-detection-methods-comparison.png}
+        \caption{}
+        \label{subfig:zelenka_compare}
+    \end{subfigure}
+    \caption{From \cite{zelenkaGasBubbleShape2014}: (a) illustration of the movement of bubbles in between two frames at 100 fps. The combination shows frames 1 and 2 with the bubble detection in frame 2 in red and matching bubbles connected in green, (b) a graph comparing the detection rates for several selected methods on a high-quality GoPro image sequence with manual ground truth on 20 images.}
+    \label{fig:zelenka}
 \end{figure}
 
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.65\textwidth]{assets/zelenkaGasBubbleShape2014-bubble-detection-methods-comparison.png}
-    \caption{A graph comparing the detection rates for several selected methods on a high-quality GoPro image sequence with manual ground truth on 20 images \cite{zelenkaGasBubbleShape2014}.}
-    \label{fig:zelenka_compare}
-\end{figure}
-
-The paper implements bubble movement matching between the current and previous frames for the tracking of bubble movement using a Kalman filter \cite{kalmanNewApproachLinear1960} to predict the bubble position in a subsequent frame from detection, employing the Hungarian method \cite{kuhnHungarianMethodAssignment1955} for the minimum weighted matching of the predicted positions and the new detection of bubble positions. Figure \ref{fig:zelenka_tracking} illustrates both the bubble detection and movement tracking between frames, notably observing the precise red border that follows the exact outline of the bubble in addition to the accurate tracking even in bubble-dense regions. The methods this paper explores are compared based on performance, illustrated in Figure \ref{fig:zelenka_compare}. The standard snake method achieves a 98.7\% decision rate, a 21.4\% advantage over the standalone Canny system.
+The paper implements bubble movement matching between the current and previous frames for the tracking of bubble movement using a Kalman filter \cite{kalmanNewApproachLinear1960} to predict the bubble position in a subsequent frame from detection, employing the Hungarian method \cite{kuhnHungarianMethodAssignment1955} for the minimum weighted matching of the predicted positions and the new detection of bubble positions. Figure \ref{subfig:zelenka_tracking} illustrates both the bubble detection and movement tracking between frames, notably observing the precise red border that follows the exact outline of the bubble in addition to the accurate tracking even in bubble-dense regions. The methods this paper explores are compared based on performance, illustrated in Figure \ref{subfig:zelenka_compare}. The standard snake method achieves a 98.7\% decision rate, a 21.4\% advantage over the standalone Canny system.
 
 \subsubsection{The Python Programming Language and OpenCV}
 OpenCV (Open Source Computer Vision Library) is an open-source computer vision and machine learning software library with over 2500 optimised algorithms, including a comprehensive set of classic and state-of-the-art computer vision and machine learning algorithms \cite{opencv}. Although native to C++, OpenCV features interfaces for Python, Java, MATLAB and C++, ensuring compatibility with Windows, Linux, Android, and macOS. OpenCV targets real-time vision applications by taking advantage of CPU accelerators, such as MMX and SSE instructions for parallel data processing, and GPU accelerators, with ongoing development of a full-featured CUDA and OpenGL interface.
