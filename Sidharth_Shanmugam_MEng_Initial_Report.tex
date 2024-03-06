@@ -8,7 +8,7 @@
 \usepackage{ragged2e}
 \usepackage[english]{datetime2}
 \usepackage{subcaption}
-\usepackage{hyperref}
+\PassOptionsToPackage{hyphens}{url}\usepackage{hyperref}
 \usepackage{siunitx}
 
 % uncomment the following two lines to check if references are all used
@@ -98,19 +98,28 @@
 %--Paper--
 
 \section{Introduction}
+\label{intro}
 \input{sections/01_project-introduction.tex}
 
 \section{Background Information}
+\label{bi}
 \input{sections/02_background-information.tex}
 
 \section{Project Objectives}
+\label{obj}
 \input{sections/03_project-objectives.tex}
 
 \section{Approach Description}
+\label{apr}
 \input{sections/04_approach-description.tex}
 
 \section{Project Timetable}
+\label{time}
 \input{sections/05_project-timetable.tex}
+
+\section{Conclusion}
+\label{conc}
+\input{sections/06_conclusion.tex}
 
 %--/Paper--
 
